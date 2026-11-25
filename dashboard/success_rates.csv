@@ -1,0 +1,9 @@
+Cell,Metric,Rate
+GPT-4o / airline,Logged (legacy metric),0.425
+GPT-4o / airline,Corrected (DB state + outputs),0.425
+GPT-4o / retail,Logged (legacy metric),0.6043478260869565
+GPT-4o / retail,Corrected (DB state + outputs),0.5456521739130434
+Claude 3.5 Sonnet (new) / airline,Logged (legacy metric),0.4675
+Claude 3.5 Sonnet (new) / airline,Corrected (DB state + outputs),0.45
+Claude 3.5 Sonnet (new) / retail,Logged (legacy metric),0.6923913043478261
+Claude 3.5 Sonnet (new) / retail,Corrected (DB state + outputs),0.6097826086956522

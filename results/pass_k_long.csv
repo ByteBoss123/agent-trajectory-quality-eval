@@ -1,0 +1,15 @@
+model,domain,k,pass_k
+gpt-4o,airline,1,0.425
+gpt-4o,airline,2,0.27999999999999997
+gpt-4o,airline,4,0.2
+gpt-4o,retail,1,0.5456521739130434
+gpt-4o,retail,2,0.42318840579710143
+gpt-4o,retail,4,0.30434782608695654
+sonnet-35-new,airline,1,0.45
+sonnet-35-new,airline,2,0.3128571428571429
+sonnet-35-new,airline,4,0.21428571428571427
+sonnet-35-new,airline,8,0.16
+sonnet-35-new,retail,1,0.6097826086956522
+sonnet-35-new,retail,2,0.4773291925465838
+sonnet-35-new,retail,4,0.3554037267080746
+sonnet-35-new,retail,8,0.25217391304347825

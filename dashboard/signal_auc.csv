@@ -1,0 +1,23 @@
+Signal,View,AUC
+n_messages,Pooled (across tasks),0.6276
+n_messages,Within task (difficulty held fixed),0.4531
+n_user_turns,Pooled (across tasks),0.6144
+n_user_turns,Within task (difficulty held fixed),0.5334
+n_tool_calls,Pooled (across tasks),0.6014
+n_tool_calls,Within task (difficulty held fixed),0.4368
+n_tool_errors,Pooled (across tasks),0.553
+n_tool_errors,Within task (difficulty held fixed),0.5524
+n_writes,Pooled (across tasks),0.5876
+n_writes,Within task (difficulty held fixed),0.4024
+n_unconfirmed_writes,Pooled (across tasks),0.528
+n_unconfirmed_writes,Within task (difficulty held fixed),0.5066
+transferred,Pooled (across tasks),0.4724
+transferred,Within task (difficulty held fixed),0.5093
+n_user_pushback,Pooled (across tasks),0.5004
+n_user_pushback,Within task (difficulty held fixed),0.5214
+n_agent_apology,Pooled (across tasks),0.5348
+n_agent_apology,Within task (difficulty held fixed),0.5478
+user_chars,Pooled (across tasks),0.6323
+user_chars,Within task (difficulty held fixed),0.5458
+GBM detector (all signals),Pooled (across tasks),0.6830003362360685
+GBM detector (all signals),Within task (difficulty held fixed),0.5239694656488549

@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!-- build 20262.26.0528.2205 -->
+<workbook original-version='18.1' source-build='2026.2.0 (20262.26.0528.2205)' source-platform='mac' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences />
+  <datasources>
+    <datasource caption="success_rates" inline='true' name='federated.success_rates' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="success_rates" name='textscan.500e9cf03b304a339528d3443ab1'>
+            <connection class='textscan' directory='.' filename='success_rates.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.500e9cf03b304a339528d3443ab1' name='success_rates.csv' table='[success_rates#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name="Cell" ordinal='0' />
+            <column datatype='string' name="Metric" ordinal='1' />
+            <column datatype='real' name="Rate" ordinal='2' />
+          </columns>
+        </relation>
+      </connection>
+          <column datatype='string' name='[Cell]' role='dimension' type='nominal' />
+          <column datatype='string' name='[Metric]' role='dimension' type='nominal' />
+          <column datatype='real' name='[Rate]' role='measure' type='quantitative' />
+    </datasource>
+    <datasource caption="pass_k" inline='true' name='federated.pass_k' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="pass_k" name='textscan.ec2fd13c27c54c7eab3274704883'>
+            <connection class='textscan' directory='.' filename='pass_k.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.ec2fd13c27c54c7eab3274704883' name='pass_k.csv' table='[pass_k#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name="Cell" ordinal='0' />
+            <column datatype='string' name="K" ordinal='1' />
+            <column datatype='real' name="PassK" ordinal='2' />
+          </columns>
+        </relation>
+      </connection>
+          <column datatype='string' name='[Cell]' role='dimension' type='nominal' />
+          <column datatype='string' name='[K]' role='dimension' type='nominal' />
+          <column datatype='real' name='[PassK]' role='measure' type='quantitative' />
+    </datasource>
+    <datasource caption="failure_types" inline='true' name='federated.failure_types' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="failure_types" name='textscan.1013f916e5b64a65a36561f63aca'>
+            <connection class='textscan' directory='.' filename='failure_types.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1013f916e5b64a65a36561f63aca' name='failure_types.csv' table='[failure_types#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name="Cell" ordinal='0' />
+            <column datatype='string' name="FailureType" ordinal='1' />
+            <column datatype='integer' name="Failures" ordinal='2' />
+          </columns>
+        </relation>
+      </connection>
+          <column datatype='string' name='[Cell]' role='dimension' type='nominal' />
+          <column datatype='string' name='[FailureType]' role='dimension' type='nominal' />
+          <column datatype='integer' name='[Failures]' role='measure' type='quantitative' />
+    </datasource>
+    <datasource caption="signal_auc" inline='true' name='federated.signal_auc' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="signal_auc" name='textscan.f2065e86b2eb4a46b7b5f1f259a1'>
+            <connection class='textscan' directory='.' filename='signal_auc.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.f2065e86b2eb4a46b7b5f1f259a1' name='signal_auc.csv' table='[signal_auc#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name="Signal" ordinal='0' />
+            <column datatype='string' name="View" ordinal='1' />
+            <column datatype='real' name="AUC" ordinal='2' />
+          </columns>
+        </relation>
+      </connection>
+          <column datatype='string' name='[Signal]' role='dimension' type='nominal' />
+          <column datatype='string' name='[View]' role='dimension' type='nominal' />
+          <column datatype='real' name='[AUC]' role='measure' type='quantitative' />
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name="Success rate: logged vs corrected">
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.success_rates' />
+          </datasources>
+          <datasource-dependencies datasource='federated.success_rates'>
+            <column-instance column='[Cell]' derivation='None' name='[none:Cell:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Metric]' derivation='None' name='[none:Metric:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Rate]' derivation='Sum' name='[sum:Rate:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings><color column='[federated.success_rates].[none:Metric:nk]' /></encodings>
+          </pane>
+        </panes>
+        <rows>[federated.success_rates].[none:Cell:nk]</rows>
+        <cols>[federated.success_rates].[none:Metric:nk] / [federated.success_rates].[sum:Rate:qk]</cols>
+      </table>
+      <simple-id uuid='{7EFD68A1-BE84-46FD-AF84-6228EEFB35F3}' />
+    </worksheet>
+    <worksheet name="Reliability: pass^k">
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.pass_k' />
+          </datasources>
+          <datasource-dependencies datasource='federated.pass_k'>
+            <column-instance column='[Cell]' derivation='None' name='[none:Cell:nk]' pivot='key' type='nominal' />
+            <column-instance column='[K]' derivation='None' name='[none:K:nk]' pivot='key' type='nominal' />
+            <column-instance column='[PassK]' derivation='Sum' name='[sum:PassK:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings><color column='[federated.pass_k].[none:Cell:nk]' /></encodings>
+          </pane>
+        </panes>
+        <rows>[federated.pass_k].[sum:PassK:qk]</rows>
+        <cols>[federated.pass_k].[none:K:nk]</cols>
+      </table>
+      <simple-id uuid='{F7DA56CF-98BE-4980-A67E-E3D79416EC00}' />
+    </worksheet>
+    <worksheet name="Failure root causes">
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.failure_types' />
+          </datasources>
+          <datasource-dependencies datasource='federated.failure_types'>
+            <column-instance column='[Cell]' derivation='None' name='[none:Cell:nk]' pivot='key' type='nominal' />
+            <column-instance column='[FailureType]' derivation='None' name='[none:FailureType:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Failures]' derivation='Sum' name='[sum:Failures:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings><color column='[federated.failure_types].[none:Cell:nk]' /></encodings>
+          </pane>
+        </panes>
+        <rows>[federated.failure_types].[none:FailureType:nk]</rows>
+        <cols>[federated.failure_types].[sum:Failures:qk]</cols>
+      </table>
+      <simple-id uuid='{A7B3A0E3-18D4-4F9B-B6D4-42C8C347F9FB}' />
+    </worksheet>
+    <worksheet name="Failure signals: pooled vs within-task AUC">
+      <table>
+        <view>
+          <datasources>
+            <datasource name='federated.signal_auc' />
+          </datasources>
+          <datasource-dependencies datasource='federated.signal_auc'>
+            <column-instance column='[AUC]' derivation='Sum' name='[sum:AUC:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Signal]' derivation='None' name='[none:Signal:nk]' pivot='key' type='nominal' />
+            <column-instance column='[View]' derivation='None' name='[none:View:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings><color column='[federated.signal_auc].[none:View:nk]' /></encodings>
+          </pane>
+        </panes>
+        <rows>[federated.signal_auc].[none:Signal:nk]</rows>
+        <cols>[federated.signal_auc].[none:View:nk] / [federated.signal_auc].[sum:AUC:qk]</cols>
+      </table>
+      <simple-id uuid='{69816302-F08D-47D2-9A15-8D06EAFFEC46}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Agent Quality Overview'>
+      <size maxheight='900' maxwidth='1400' minheight='900' minwidth='1400' sizing-mode='fixed' />
+      <datasources />
+      <zones>
+        <zone h='900' id='2' layout-strategy-id='flow' type-v2='layout-basic' w='1400' x='0' y='0'>
+          <zone h='40' id='3' type-v2='title' w='1400' x='0' y='0' />
+          <zone h='430' id='4' name="Success rate: logged vs corrected" type-v2='visual' w='700' x='0' y='40' />
+          <zone h='430' id='5' name="Reliability: pass^k" type-v2='visual' w='700' x='700' y='40' />
+          <zone h='430' id='6' name="Failure root causes" type-v2='visual' w='700' x='0' y='470' />
+          <zone h='430' id='7' name="Failure signals: pooled vs within-task AUC" type-v2='visual' w='700' x='700' y='470' />
+        </zone>
+      </zones>
+      <simple-id uuid='{25BA7D5B-D025-4DBD-89C6-90A2FB391663}' />
+    </dashboard>
+  </dashboards>
+  <windows>
+    <window class='worksheet' name="Success rate: logged vs corrected">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CD6C094E-16EA-43B6-95A8-A8677316BCDC}' />
+    </window>
+    <window class='worksheet' name="Reliability: pass^k">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{45DDDFEF-54CF-42B1-AD5B-31FA1B7079B4}' />
+    </window>
+    <window class='worksheet' name="Failure root causes">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A90A5B41-EFF6-4F9C-BABF-184350DC3967}' />
+    </window>
+    <window class='worksheet' name="Failure signals: pooled vs within-task AUC">
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2E2F582A-0864-424B-BD69-300FC6217A44}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Agent Quality Overview'>
+      <viewpoints><viewpoint name="Success rate: logged vs corrected" /><viewpoint name="Reliability: pass^k" /><viewpoint name="Failure root causes" /><viewpoint name="Failure signals: pooled vs within-task AUC" /></viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{C626B663-CE31-4BFD-B148-05D86B93F4A8}' />
+    </window>
+  </windows>
+</workbook>

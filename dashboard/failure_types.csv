@@ -1,0 +1,26 @@
+Cell,FailureType,Failures
+GPT-4o / airline,wrong_arguments,51
+GPT-4o / airline,no_write,27
+GPT-4o / airline,unneeded_write,21
+GPT-4o / airline,missed_write,8
+GPT-4o / airline,wrong_write_type,5
+GPT-4o / airline,missing_required_info,3
+GPT-4o / retail,wrong_arguments,90
+GPT-4o / retail,no_write,39
+GPT-4o / retail,missed_write,31
+GPT-4o / retail,wrong_write_type,31
+GPT-4o / retail,missing_required_info,13
+GPT-4o / retail,unneeded_write,4
+GPT-4o / retail,other,1
+Claude 3.5 Sonnet (new) / airline,wrong_arguments,99
+Claude 3.5 Sonnet (new) / airline,unneeded_write,47
+Claude 3.5 Sonnet (new) / airline,no_write,43
+Claude 3.5 Sonnet (new) / airline,missed_write,16
+Claude 3.5 Sonnet (new) / airline,wrong_write_type,15
+Claude 3.5 Sonnet (new) / retail,wrong_arguments,151
+Claude 3.5 Sonnet (new) / retail,missed_write,62
+Claude 3.5 Sonnet (new) / retail,no_write,60
+Claude 3.5 Sonnet (new) / retail,wrong_write_type,51
+Claude 3.5 Sonnet (new) / retail,missing_required_info,30
+Claude 3.5 Sonnet (new) / retail,other,3
+Claude 3.5 Sonnet (new) / retail,unneeded_write,2

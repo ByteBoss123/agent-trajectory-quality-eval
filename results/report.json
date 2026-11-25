@@ -1,0 +1,210 @@
+{
+  "n_trajectories": 1980,
+  "n_tasks": 165,
+  "legacy_reproduction": {
+    "match": 1976,
+    "of": 1980,
+    "mismatches_that_were_run_errors": 3
+  },
+  "legacy_false_passes": {
+    "n": 110,
+    "all_on_required_output_tasks": true,
+    "by_cell": {
+      "gpt-4o/retail": 27,
+      "sonnet-35-new/airline": 7,
+      "sonnet-35-new/retail": 76
+    }
+  },
+  "pass_rates": [
+    {
+      "model": "gpt-4o",
+      "domain": "airline",
+      "trajectories": 200,
+      "tasks": 50,
+      "trials_per_task": 4,
+      "legacy": 0.425,
+      "legacy_lo": 0.325,
+      "legacy_hi": 0.53,
+      "corrected": 0.425,
+      "corrected_lo": 0.3299,
+      "corrected_hi": 0.53,
+      "pass^1": 0.425,
+      "pass^2": 0.28,
+      "pass^4": 0.2,
+      "pass^8": null
+    },
+    {
+      "model": "gpt-4o",
+      "domain": "retail",
+      "trajectories": 460,
+      "tasks": 115,
+      "trials_per_task": 4,
+      "legacy": 0.6043,
+      "legacy_lo": 0.5326,
+      "legacy_hi": 0.6783,
+      "corrected": 0.5457,
+      "corrected_lo": 0.4717,
+      "corrected_hi": 0.6174,
+      "pass^1": 0.5457,
+      "pass^2": 0.4232,
+      "pass^4": 0.3043,
+      "pass^8": null
+    },
+    {
+      "model": "sonnet-35-new",
+      "domain": "airline",
+      "trajectories": 400,
+      "tasks": 50,
+      "trials_per_task": 8,
+      "legacy": 0.4675,
+      "legacy_lo": 0.37,
+      "legacy_hi": 0.57,
+      "corrected": 0.45,
+      "corrected_lo": 0.3575,
+      "corrected_hi": 0.545,
+      "pass^1": 0.45,
+      "pass^2": 0.3129,
+      "pass^4": 0.2143,
+      "pass^8": 0.16
+    },
+    {
+      "model": "sonnet-35-new",
+      "domain": "retail",
+      "trajectories": 920,
+      "tasks": 115,
+      "trials_per_task": 8,
+      "legacy": 0.6924,
+      "legacy_lo": 0.6293,
+      "legacy_hi": 0.75,
+      "corrected": 0.6098,
+      "corrected_lo": 0.5467,
+      "corrected_hi": 0.675,
+      "pass^1": 0.6098,
+      "pass^2": 0.4773,
+      "pass^4": 0.3554,
+      "pass^8": 0.2522
+    }
+  ],
+  "failure_taxonomy_share": {
+    "wrong_arguments": 0.433,
+    "no_write": 0.1872,
+    "missed_write": 0.1296,
+    "wrong_write_type": 0.113,
+    "unneeded_write": 0.0819,
+    "missing_required_info": 0.0509,
+    "other": 0.0044
+  },
+  "policy_compliance": {
+    "by_cell": {
+      "gpt-4o/airline": {
+        "writes": 250,
+        "strict_confirmed": 0.676,
+        "lenient_confirmed": 0.796
+      },
+      "gpt-4o/retail": {
+        "writes": 666,
+        "strict_confirmed": 0.7928,
+        "lenient_confirmed": 0.8994
+      },
+      "sonnet-35-new/airline": {
+        "writes": 494,
+        "strict_confirmed": 0.8158,
+        "lenient_confirmed": 0.8785
+      },
+      "sonnet-35-new/retail": {
+        "writes": 1352,
+        "strict_confirmed": 0.9401,
+        "lenient_confirmed": 0.9667
+      }
+    },
+    "writes_total": 2762,
+    "in_passing_trajectories": {
+      "writes": 1298,
+      "unconfirmed_lenient": 70,
+      "unconfirmed_strict": 130
+    },
+    "passing_trajectories_with_any_unconfirmed_write": 55,
+    "passing_trajectories_with_writes": 813,
+    "retail_writes_before_auth": 1
+  },
+  "failure_base_rate": 0.45606060606060606,
+  "detector_task_grouped_cv": {
+    "logistic": {
+      "auc": 0.6728268816109717,
+      "lo": 0.6248669018702709,
+      "hi": 0.721201188651067,
+      "pr_auc": 0.6353496902535996,
+      "within_task_auc": 0.4964885496183206
+    },
+    "gbm": {
+      "auc": 0.6830003362360685,
+      "lo": 0.6329949575694942,
+      "hi": 0.728287934911183,
+      "pr_auc": 0.6297761405392414,
+      "within_task_auc": 0.5239694656488549
+    }
+  },
+  "within_task_pairs": 3275,
+  "single_signal": {
+    "n_messages": {
+      "pooled_auc": 0.6276,
+      "within_task_auc": 0.4531
+    },
+    "n_user_turns": {
+      "pooled_auc": 0.6144,
+      "within_task_auc": 0.5334
+    },
+    "n_tool_calls": {
+      "pooled_auc": 0.6014,
+      "within_task_auc": 0.4368
+    },
+    "n_tool_errors": {
+      "pooled_auc": 0.553,
+      "within_task_auc": 0.5524
+    },
+    "n_writes": {
+      "pooled_auc": 0.5876,
+      "within_task_auc": 0.4024
+    },
+    "n_unconfirmed_writes": {
+      "pooled_auc": 0.528,
+      "within_task_auc": 0.5066
+    },
+    "transferred": {
+      "pooled_auc": 0.4724,
+      "within_task_auc": 0.5093
+    },
+    "n_user_pushback": {
+      "pooled_auc": 0.5004,
+      "within_task_auc": 0.5214
+    },
+    "n_agent_apology": {
+      "pooled_auc": 0.5348,
+      "within_task_auc": 0.5478
+    },
+    "user_chars": {
+      "pooled_auc": 0.6323,
+      "within_task_auc": 0.5458
+    }
+  },
+  "cross_model_transfer_disjoint_tasks": {
+    "gpt-4o->sonnet-35-new": {
+      "auc": 0.6230629649791326,
+      "lo": 0.5304615609269694,
+      "hi": 0.6983272454073762,
+      "n_test": 664
+    },
+    "sonnet-35-new->gpt-4o": {
+      "auc": 0.6048062865497076,
+      "lo": 0.5137582978086771,
+      "hi": 0.691104933682682,
+      "n_test": 332
+    }
+  },
+  "alert_top20pct": {
+    "model": "gbm",
+    "precision": 0.6919191919191919,
+    "recall": 0.3034330011074197,
+    "base_rate": 0.45606060606060606
+  }
+}

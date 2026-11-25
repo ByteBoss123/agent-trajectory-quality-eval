@@ -1,0 +1,15 @@
+Cell,K,PassK
+GPT-4o / airline,k=1,0.425
+GPT-4o / airline,k=2,0.2799999999999999
+GPT-4o / airline,k=4,0.2
+GPT-4o / retail,k=1,0.5456521739130434
+GPT-4o / retail,k=2,0.4231884057971014
+GPT-4o / retail,k=4,0.3043478260869565
+Claude 3.5 Sonnet (new) / airline,k=1,0.45
+Claude 3.5 Sonnet (new) / airline,k=2,0.3128571428571429
+Claude 3.5 Sonnet (new) / airline,k=4,0.2142857142857142
+Claude 3.5 Sonnet (new) / airline,k=8,0.16
+Claude 3.5 Sonnet (new) / retail,k=1,0.6097826086956522
+Claude 3.5 Sonnet (new) / retail,k=2,0.4773291925465838
+Claude 3.5 Sonnet (new) / retail,k=4,0.3554037267080746
+Claude 3.5 Sonnet (new) / retail,k=8,0.2521739130434782
